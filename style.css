@@ -3,21 +3,23 @@
 }
 
 body {
-  background-color: #f4f7f6;
   font-family: "Helvetica Neue", Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  color: #333;
+  align-items: center;
+  background: linear-gradient(#002244, #121212);
+  background-attachment: fixed;
+  color: #e0e0e0;
 }
 
 .container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  background: white;
   padding: 40px;
-  border-top: 8px solid #004488;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
+  background: #1e1e1e;
+  border-top: 8px solid #00aaff;
 }
 
 header {
@@ -26,11 +28,13 @@ header {
 }
 
 h1 {
+  color: #ffffff;
   margin-bottom: 5px;
   font-size: 2.2rem;
 }
 
 h2 {
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -40,13 +44,10 @@ h2::before {
   content: "";
   width: 24px;
   height: 24px;
-
   background-image: url("assets/terminal.png");
-
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-
   margin-top: 4px;
 }
 
@@ -64,22 +65,128 @@ h2::before {
   border: 3px solid #eee;
 }
 
+.time {
+  font-size: 0.9em;
+  color: #999;
+  margin-top: 3px;
+  margin-left: auto;
+  margin-right: 3px;
+}
+
+.position {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.highlight {
+  margin-left: 5px;
+  color: #d4b695;
+}
+
+p {
+  font-size: large;
+}
+
 ul {
   padding-left: 20px;
+  font-size: large;
 }
 
 li {
   margin-bottom: 12px;
   padding: 8px;
-  background: #fafafa;
   border-radius: 4px;
+  background: #252525;
+  color: #e7e7e7;
 }
 
+.escape-block {
+  font-size: large;
+  position: relative;
+  color: #e0e0e0;
+  background-color: #353535;
+  border-radius: 20px;
+  height: 100px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.escape-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #e0e0e0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.escape-block:hover {
+  color: transparent;
+  background-color: hsl(280, 20%, 48%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.escape-block:hover::after {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  content: "已累積 30+ 場經驗";
+  opacity: 1;
+}
+
+.sing-block {
+  font-size: large;
+  position: relative;
+  color: #e0e0e0;
+  background-color: #353535;
+  border-radius: 20px;
+  height: 100px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: all 0.3s ease;
+}
+
+.sing-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #e0e0e0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.sing-block:hover {
+  color: transparent;
+  background-color: hsl(57, 20%, 54%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sing-block:hover::after {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  content: "每年於資工之夜表演";
+  opacity: 1;
+}
 .github-link {
   display: inline-block;
   padding: 10px 25px;
-  background-color: #004488;
   color: white;
+  background-color: #00aaff;
   text-decoration: none;
   border-radius: 20px;
   transition: all 0.3s ease;
@@ -91,29 +198,50 @@ li {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: linear-gradient(#002244, #121212);
-    background-attachment: fixed;
-    color: #e0e0e0;
-  }
+.youtube-link {
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #ff6246;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
 
-  .container {
-    background-color: #1e1e1e;
-    border-top-color: #00aaff;
-  }
+.youtube-link:hover {
+  background-color: #6e291d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-  li {
-    background: #252525;
-    color: #ccc;
-  }
+.instagram-link {
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #dd6ed2;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
 
-  h1,
-  h2 {
-    color: #ffffff;
-  }
+.instagram-link:hover {
+  background-color: #7b3e75;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-  .github-link {
-    background-color: #00aaff;
-  }
+.escapebar-link {
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: #4a64e2;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.escapebar-link:hover {
+  background-color: #28367a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
